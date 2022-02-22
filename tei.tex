@@ -1,0 +1,58 @@
+\newcounter{level}
+\newcommand{\TEI}[2][0]{#2}
+\newcommand{\teiHeader}[2][0]{#2}
+\renewcommand{\title}[2][0]{\chapter{#2}}
+\newcommand{\fileDesc}[2][0]{#2}
+\newcommand{\titleStmt}[2][0]{#2}
+\newcommand{\publicationStmt}[2][0]{\relax}
+\newcommand{\sourceDesc}[2][0]{\relax}
+\newcommand{\text}[2][0]{#2}
+\renewcommand{\body}[2][0]{%
+	\beginnumbering%
+	#2%
+	\endnumbering%
+}
+\renewcommand{\div}[2][0]{%
+	\addtocounter{level}{1}%
+	\vspace{\baselineskip}%
+	#2%
+	\addtocounter{level}{-1}%
+}
+\newcommand{\head}[2][0]{%
+\ifnumbering\pstart\else\relax\fi%
+	\ifnum\thelevel=1\section{#2}%
+	\else\ifnum\thelevel=2\subsection{#2}%
+	\else\subsubsection{#2}%
+	\fi\fi%
+\ifnumbering\pend\else\relax\fi%
+}
+\newcommand{\p}[2][0]{%
+\pstart\relax #2\pend%
+}
+\newcommand{\q}[2][0]{»#2«}
+\newcommand{\rs}[2][0]{#2}
+\newcommand{\note}[2][0]{
+	\
+}
+\newcommand{\lb}[1][0]{%
+	\relax
+}
+\newcommand{\anchor}[1][0]{%
+	\label{#1}%
+}
+\newcommand{\seg}[2][0]{%
+	\label{#1}#2\label{#1e}%
+}
+\newcommand{\hi}[2][0]{%
+	\textit{#2}%
+}
+\newcommand{\bibl}[2][0]{%
+	\sindex[#1]{#2}
+}
+\newcommand{\listBibl}[2][0]{%
+	#2%
+}
+\renewcommand{\note}[2][0]{%
+	\footnoteB{#2}%
+}
+\renewcommand{\ref}[2][0]{#2}

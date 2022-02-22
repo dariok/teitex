@@ -25,6 +25,9 @@
   </xsl:template>
   
   <xsl:template match="@*">
-    <xsl:value-of select="local-name() || '=' || normalize-space() || ','"/>
+    <xsl:value-of select="local-name() || '=' || replace(., '#', '\$') || ','"/>
+  </xsl:template>
+  <xsl:template match="text()">
+    <xsl:value-of select="replace(., '#', '\\#')" />
   </xsl:template>
 </xsl:stylesheet>
